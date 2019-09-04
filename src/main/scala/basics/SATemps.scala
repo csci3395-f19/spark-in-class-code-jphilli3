@@ -71,6 +71,5 @@ object SATemps {
             ScatterStyle(data.map(_.doy), data.map(_.tave), symbolWidth = 3, symbolHeight = 3, colors = cg(data.map(_.year))),
             "Day of Year", "Temp", "SA Temps")
             SwingRenderer(tempByDayPlot,800,800, true)
-
     }
 }
