@@ -4,6 +4,7 @@ import swiftvis2.plotting.styles.ScatterStyle
 import swiftvis2.plotting.renderer.SwingRenderer
 import org.apache.spark.Success
 import spire.std.`package`.map
+import swiftvis2.plotting.styles.PlotStyle
 
 //MARK: Cases
 
@@ -158,6 +159,8 @@ object Basics {
     val differenceInData = mappedFilteredData.map(x => (x._1, x._3.toString.toDouble - x._2.toString.toDouble)).toSeq.sortBy(_._2)(Ordering[Double].reverse)
     println(s"Country with the largest increase in GDP per capita from 1970 to 2015: ${differenceInData(0)}")
 
+   
+
 
     //7. Pick three countries and make a scatter plot with year on the X-axis and educational attainment of females ages 25-34 on the Y-axis. Your three countries should have good data going back to at least 1970.
     println("****Question #7****")
@@ -169,8 +172,6 @@ object Basics {
 
     val cg = ColorGradient(1946.0 -> RedARGB, 1975.0 -> BlueARGB, 2014.0 -> GreenARGB)
 
-
-    //)
     val femaleEduPlot = Plot.simple(
         ScatterStyle(filteredCountryEduData.map(_.year.toDouble), filteredCountryEduData.map(_.mean), symbolWidth = 3, symbolHeight = 3, colors = cg(filteredCountryEduData.map(_.mean))),
         "Educational Attainment of Females Ages 25-34 in Kenya, Netherlands, and Trinidad and Tobago", "Year", "Educational Attainment")
@@ -179,18 +180,21 @@ object Basics {
 
     //8. For those same three countries you picked for #7, make a scatter plot of GDP over time.
     println("****Question #8****")
-    val filteredCountryGDPData = dataGDP.filter(x => (x.countryName == "Kenya" || x.countryName == "Netherlands" || x.countryName == "Trinidad and Tobago")).map(x =>  
-    x.years.map(x => x match {
-    case Some(year:Double ) => year
-    case None => None}))
+    val filteredCountryGDPData = dataGDP.filter(x => (x.countryName == "Kenya" || x.countryName == "Netherlands" || x.countryName == "Trinidad and Tobago")).map(x => (x.countryName, x.years.foreach(
+        x => x match {
+            case Some(year:Double ) => year
+            case None => None
+        }
+    )))
+
 
 
     /*val GDPPlot = Plot.simple(
-        ScatterStyle(1970 to 2015, filteredCountryGDPData.map(x => x.toString.toDouble), symbolWidth = 3, symbolHeight = 3, colors = BlackARGB),
+        ScatterStyle(1970 to 2015, filteredCountryGDPData.map(x => x._2.getClass().toString().toDouble), symbolWidth = 3, symbolHeight = 3, colors = BlackARGB),
         "GDP Over Time of Kenya, Netherlands, and Trinidad and Tobago", "Year", "Educational Attainment")
         SwingRenderer(GDPPlot,800,800, true)
     
-        */
+    */
 
     //9. Make a scatter plot with one point per country (for all countries) with GDP on the X-axis and education level of males ages 25-34 on the Y-axis. Make a similar plot for females. Do this for both 1970 and 2015.
     println("****Question #9****")
