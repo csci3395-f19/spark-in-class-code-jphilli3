@@ -25,8 +25,10 @@ The country with the smallest mean GDP per capita in 1970 was Myanmar with a GDP
 **Question #5**
 The country with the largest mean GDP per capita in 2015 was Luxembourg with a GDP of 41765.9203531235
 The country with the smallest mean GDP per capita in 2015 was Burundi with a GDP of 1342.26306433207
+
 **Question #6**
 The country with the largest increase in mean GDP per capita from 1970 to 2015 was Luxembourg with 72191.37228147639
+
 **Question #7**
 The scatter plot of educational attainment of females ages 25 to 34 from 1970 to 2015 in Kenya, the Netherlands, and Trinidad and Tobago.
 
