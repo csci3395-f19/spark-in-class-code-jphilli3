@@ -32,7 +32,7 @@ The country with the largest increase in mean GDP per capita from 1970 to 2015 w
 **Question #7**
 The scatter plot of educational attainment of females ages 25 to 34 from 1970 to 2015 in Kenya, the Netherlands, and Trinidad and Tobago.
 
-![Question 7](/users/jphilli3/spark-in-class-code-jphilli3/Screenshot from 2019-09-07 13-44-04.png)
+![Question 7](Screenshot from 2019-09-07 13-44-04.png)
 
 **Question #8**
 **Question #9**
